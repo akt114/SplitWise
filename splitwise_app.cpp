@@ -14,19 +14,29 @@ void solve()
 
 int no_of_trancsations,friends,count_of_transactions=0,amount;
 string x,y;
+
+// hashmap to store net amount against each person after completing all transcations
 unordered_map<string,int> net;
+
+// enter the number of transactions
+// enter the number of friends
 cin>>no_of_trancsations>>friends;
 
 while(no_of_trancsations--)
 {
 	cin>>x>>y>>amount;
+	// if person x is participating in a transation for the first time
 	if(net.find(x)==net.end())
 		net[x]=0;
+	// if person y is participating in a transation for the first time
 	if(net.find(y)==net.end())
 		net[y]=0;
+	//decrement amount from person x and increament in person  y. 
 	net[x]-=amount;
 	net[y]+=amount;
 }
+
+// multiset to store people whose net balance is non-zero.
 multiset<pair<int,string>> m;
 for(auto p:net)
 {
@@ -44,6 +54,7 @@ while(!m.empty())
 	int credit=r->first;
 	string credit_person=r->second;
 
+	// amoount which needs to be transferred
 	int settled_amount=min(-debit,credit);
 	debit+=settled_amount;
 	credit-=settled_amount;
@@ -51,8 +62,11 @@ while(!m.empty())
 	count_of_transactions++;
 	cout<<debit_person<<" pays "<<settled_amount<<" to "<<credit_person<<"\n";
 
+	// remove the current state of amount
 	m.erase(l);
 	m.erase(r);
+
+	// insert agin in multiset if there if pending amount.
 	if(debit!=0)
 		m.insert({debit,debit_person});
 	if(credit!=0)
