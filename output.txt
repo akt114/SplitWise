@@ -1,0 +1,3 @@
+Amit pays 50 to Arvind
+Amit pays 10 to Rounak
+Reduced Number of transactions performed is 2
