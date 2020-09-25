@@ -5,3 +5,5 @@
 
 * ##### For Input format, kindly check the [input file](https://github.com/akt114/SplitWise/blob/master/input.txt).
 * ##### For Output format, kindly check the [output file](https://github.com/akt114/SplitWise/blob/master/output.txt).
+
+In case of any queries or suggestions, feel free to drop a mail [here](mailto:amittiwary710@gmail.com).
